@@ -27,9 +27,9 @@
             <input type="checkbox" bind:checked={isSignIn} />
 
             <label for="email" class="block text-sm font-medium mb-1">Email</label>
-            <input type="email" bind:value={email} id="email" name="email" />
+            <input type="email" bind:value={email} id="email" name="email" class="border" />
             <label for="password" class="block text-sm font-medium mb-1">password</label>
-            <input type="password" bind:value={password} id="password" name="password" />
+            <input type="password" bind:value={password} id="password" name="password" class="border"/>
             <button class="">Sign In</button>
         </div>
         {#if _error}
@@ -46,11 +46,11 @@
         <div class="mb-4">
             <input type="checkbox" bind:checked={isSignIn} />
             <label for="name" class="block text-sm font-medium mb-1">Name</label>
-            <input type="text" bind:value={name} id="email" name="email" />
-            <label for="email" class="block text-sm font-medium mb-1">Email</label>
-            <input type="email" bind:value={email} id="email" name="email" />
+            <input type="text" bind:value={name} id="email" name="email" class="border" />
+            <label for="email" class="block text-sm font-medium mb-1 ">Email</label>
+            <input type="email" bind:value={email} id="email" name="email" class="border" />
             <label for="password" class="block text-sm font-medium mb-1">password</label>
-            <input type="password" bind:value={password} id="password" name="password" />
+            <input type="password" bind:value={password} id="password" name="password" class="border" />
             <button class="">Sign Up</button>
         </div>
         {#if _error}
