@@ -8,5 +8,7 @@ export const load = ({ locals }) => {
     if (locals.user.role == 'admin') {
         throw redirect(303, '/not-authorized');
     }
-    return locals.user;
+    return {
+        user: locals.user
+    };
 };
