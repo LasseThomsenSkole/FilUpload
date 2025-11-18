@@ -10,3 +10,4 @@
    user user user
 {/if}
 {user?.name}
+{"role:" + user?.role}
