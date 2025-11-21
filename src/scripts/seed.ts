@@ -47,4 +47,4 @@ async function main(){
 
 }
 
-await main();
+await main().finally(() => process.exit(0));
