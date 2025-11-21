@@ -14,7 +14,7 @@
 		"lint": "prettier --check . && eslint .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
-        "db:seed": "node ./src/script/seed.ts"
+        "db:seed": "node ./src/scripts/seed.ts"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
