@@ -13,7 +13,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// todo: https://www.better-auth.com/docs/plugins/admin
+// https://www.better-auth.com/docs/plugins/admin
 
 model User {
   id            String    @id
@@ -26,10 +26,12 @@ model User {
   sessions      Session[]
   accounts      Account[]
 
-  role       String?
-  banned     Boolean?  @default(false)
-  banReason  String?
-  banExpires DateTime?
+  role          String?
+  banned        Boolean?        @default(false)
+  banReason     String?
+  banExpires    DateTime?
+  File          File[]
+  FileKeyPacket FileKeyPacket[]
 
   @@unique([email])
   @@map("user")
@@ -85,4 +87,26 @@ model Verification {
   updatedAt  DateTime @default(now()) @updatedAt
 
   @@map("verification")
+}
+
+model File {
+  id                String          @id @default(cuid())
+  ownerId           String
+  owner             User            @relation(fields: [ownerId], references: [id])
+  s3Key             String
+  encryptedMetadata String
+  keyPackets        FileKeyPacket[]
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+}
+
+model FileKeyPacket {
+  id           String   @id @default(cuid())
+  fileId       String
+  file         File     @relation(fields: [fileId], references: [id])
+  recipientId  String
+  recipient    User     @relation(fields: [recipientId], references: [id])
+  encryptedFek String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }
