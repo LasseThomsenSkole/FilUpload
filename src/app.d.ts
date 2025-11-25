@@ -6,11 +6,15 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
-        interface Locals {
-            auth: BetterAuth;
-            session: import("better-auth").Session | null;
-            user: import("better-auth").User | null;
-        }
+		interface Locals {
+			auth: BetterAuth;
+			session: import('better-auth').Session | null;
+			user: import('better-auth').User | null;
+		}
+	}
+
+	interface Window {
+		userPublicKey?: string;
 	}
 }
 
