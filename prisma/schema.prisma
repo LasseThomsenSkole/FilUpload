@@ -33,6 +33,8 @@ model User {
   File          File[]
   FileKeyPacket FileKeyPacket[]
 
+  publicKey String?
+
   @@unique([email])
   @@map("user")
 }

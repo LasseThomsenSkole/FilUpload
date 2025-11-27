@@ -12,7 +12,11 @@ export const auth = betterAuth({
         additionalFields: {
             role: {
                 type: "string",
-            }
+            },
+						publicKey: {
+								type: "string",
+								required: false,
+						}
         },
     },
     emailAndPassword: {
