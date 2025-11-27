@@ -1,8 +1,9 @@
 import { json } from '@sveltejs/kit';
-import {  PutObjectCommand } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { prisma } from '$lib/server/prisma';
 import { s3 } from '$lib/S3/S3-client';
+import { BUCKET_NAME } from '$env/static/private';
 
 
 
@@ -23,7 +24,7 @@ export async function POST({ request, locals }) {
 	const s3Key = `uploads/${fileId}.bin`;
 
 	const command = new PutObjectCommand({
-		Bucket: process.env.S3_BUCKET!,
+		Bucket: BUCKET_NAME,
 		Key: s3Key,
 		ContentType: 'application/octet-stream'
 	});
