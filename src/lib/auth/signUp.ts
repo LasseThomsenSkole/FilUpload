@@ -31,8 +31,8 @@ export async function signUp(name: string, email: string, password: string) {
 	}
 
 
-	await idbSet("privateKey", privateKeyBase64);
-	await idbSet("mnemonic", mnemonic);
+	await idbSet(`${name}_privateKey`, privateKeyBase64);
+	await idbSet(`${name}_privateKey`, mnemonic);
 
 	return {
 		user: data.user,
