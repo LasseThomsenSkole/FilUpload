@@ -35,7 +35,9 @@ export async function POST({ request }) {
 			id: fileId,
 			ownerId: user.id,
 			s3Key,
-			encryptedMetadata: ''
+			encryptedMetadata: '',
+			nonce: '',
+			metaNonce: ''
 		}
 	});
 
