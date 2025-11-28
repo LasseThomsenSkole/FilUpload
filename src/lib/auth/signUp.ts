@@ -1,10 +1,9 @@
 import { authClient } from "$lib/auth/auth-client";
 import { generateMnemonic } from "@scure/bip39";
 import { wordlist } from '@scure/bip39/wordlists/english.js';
-
 import { set as idbSet } from "idb-keyval";
-
 import sodium from 'libsodium-wrappers';
+
 export async function signUp(name: string, email: string, password: string) {
 	await sodium.ready;
 
@@ -32,7 +31,7 @@ export async function signUp(name: string, email: string, password: string) {
 
 
 	await idbSet(`${name}_privateKey`, privateKeyBase64);
-	await idbSet(`${name}_privateKey`, mnemonic);
+	await idbSet(`${name}_mnemonic`, mnemonic);
 
 	return {
 		user: data.user,
