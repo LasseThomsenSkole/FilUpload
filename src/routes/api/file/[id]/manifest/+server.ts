@@ -1,11 +1,15 @@
 import { json } from '@sveltejs/kit';
 import { prisma } from '$lib/server/prisma';
+import { auth } from '$lib/auth/auth.ts';
 
-export async function GET({ params, locals }) {
-	const session = await locals.auth.api.getSession();
+export async function GET({ params, request }) {
+	const session = await auth.api.getSession({
+		headers: request.headers
+	});
 	if (!session?.user) {
 		return json({ error: 'Unauthorized' }, { status: 401 });
 	}
+
 
 	const user = session.user;
 

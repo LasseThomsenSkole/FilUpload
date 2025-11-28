@@ -3,11 +3,14 @@ import { prisma } from '$lib/server/prisma';
 import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { s3 } from '$lib/S3/S3-client';
+import { auth } from '$lib/auth/auth';
 import { BUCKET_NAME } from '$env/static/private';
 
 
-export async function GET({ params, locals }) {
-	const session = await locals.auth.api.getSession();
+export async function GET({ params, request }) {
+	const session = await auth.api.getSession({
+		headers: request.headers
+	});
 	if (!session?.user) {
 		return json({ error: "Unauthorized" }, { status: 401 });
 	}
