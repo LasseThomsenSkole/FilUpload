@@ -30,7 +30,6 @@ export async function POST({ request }) {
 		return json({ error: 'Forbidden' }, { status: 403 });
 	}
 
-	// Save encrypted metadata
 	await prisma.file.update({
 		where: { id: fileId },
 		data: {
@@ -40,7 +39,6 @@ export async function POST({ request }) {
 		}
 	});
 
-	// Save each key-packet (encrypted FEK)
 	for (const kp of keyPackets) {
 		await prisma.fileKeyPacket.create({
 			data: {
