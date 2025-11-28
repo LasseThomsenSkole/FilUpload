@@ -6,8 +6,6 @@ import { s3 } from '$lib/S3/S3-client';
 import { BUCKET_NAME } from '$env/static/private';
 import { auth } from '$lib/auth/auth';
 
-
-
 export async function POST({ request }) {
 	const session = await auth.api.getSession({
 		headers: request.headers
