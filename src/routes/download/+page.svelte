@@ -1,53 +1,56 @@
 <script lang="ts">
-	import sodium from "libsodium-wrappers";
+import { downloadFile} from '$lib/crypto/downloadFile.ts';
+import { onMount } from 'svelte';
+import { get } from "idb-keyval";
+import sodium from 'libsodium-wrappers';
 
-	async function downloadFile(fileId, myPublicKey, myPrivateKey) {
-		await sodium.ready;
+export let data; // comes from +page.server.ts
+let user = data.user;
+let files = data.files;
 
-		const manifest = await fetch(`/api/file/${fileId}/manifest`).then(r => r.json());
+let privateKey: string = "";
+let status = "";
+let loading = false;
 
-		const encryptedFek = sodium.from_base64(manifest.keyPacket);
+onMount(async () => {
+	await sodium.ready;
 
-		const fileKey = sodium.crypto_box_seal_open(
-			encryptedFek,
-			myPublicKey,
-			myPrivateKey
-		);
-
-		const { url } = await fetch(`/api/file/${fileId}/download-url`).then(r => r.json());
-
-		const ciphertext = new Uint8Array(await fetch(url).then(r => r.arrayBuffer()));
-
-		const nonce = sodium.from_base64(manifest.nonce); //decrypt
-
-		const plaintext = sodium.crypto_aead_xchacha20poly1305_ietf_decrypt(
-			null,
-			ciphertext,
-			null,
-			nonce,
-			fileKey
-		);
-
-
-		const blob = new Blob([plaintext]); //convert
-
-		const metaNonce = sodium.from_base64(manifest.metaNonce);
-		const metaCt = sodium.from_base64(manifest.encryptedMetadata);
-		const meta = sodium.crypto_aead_xchacha20poly1305_ietf_decrypt(
-			null,
-			metaCt,
-			null,
-			metaNonce,
-			fileKey
-		);
-		const metadata = JSON.parse(new TextDecoder().decode(meta));
-
-		//trigger save
-		const urlObject = URL.createObjectURL(blob);
-		const a = document.createElement("a");
-		a.href = urlObject;
-		a.download = metadata.filename || "file.bin";
-		a.click();
+	privateKey = await get(`${user.name}_privateKey`) || "";
+	if (!privateKey || privateKey.length === 0) {
+		status = "No private key found. You must import your recovery phrase.";
 	}
+});
+
 
 </script>
+
+<div class="p-4">
+	<h1 class="text-2xl font-bold mb-4">Your Files</h1>
+
+	{#if !privateKey}
+		<p class="text-red-500">No private key loaded. You cannot decrypt files.</p>
+	{/if}
+
+	<ul class="space-y-4">
+		{#each files as file (file.id)}
+			<li class="border p-3 flex justify-between items-center">
+				<div>
+					<p class="font-semibold">{file.name}</p>
+					<p class="text-sm text-gray-400">{file.id}</p>
+				</div>
+
+				<button
+					class="border px-3 py-1 hover:bg-gray-800"
+					on:click={() => downloadFile(file.id, user.publicKey, privateKey )}
+					disabled={loading}
+				>
+					Download
+				</button>
+			</li>
+		{/each}
+	</ul>
+
+	{#if status}
+		<p class="mt-4">{status}</p>
+	{/if}
+</div>
