@@ -12,9 +12,9 @@ export async function POST({ request }) {
 
 	const user = session.user;
 
-	const { fileId, encryptedMetadata, keyPackets } = await request.json();
+	const { fileId, encryptedMetadata, keyPackets, nonce, metaNonce } = await request.json();
 
-	if (!fileId || !encryptedMetadata || !Array.isArray(keyPackets)) {
+	if (!fileId || !encryptedMetadata || !Array.isArray(keyPackets) || !nonce || !metaNonce) {
 		return json({ error: 'Invalid body' }, { status: 400 });
 	}
 
@@ -34,7 +34,9 @@ export async function POST({ request }) {
 	await prisma.file.update({
 		where: { id: fileId },
 		data: {
-			encryptedMetadata
+			encryptedMetadata,
+			nonce,
+			metaNonce
 		}
 	});
 
