@@ -49,6 +49,8 @@
 		]
 	},
 	"dependencies": {
+		"@aws-sdk/client-s3": "^3.937.0",
+		"@aws-sdk/s3-request-presigner": "^3.937.0",
 		"@prisma/client": "6.19.0",
 		"@scure/bip39": "^2.0.1",
 		"@types/libsodium-wrappers": "^0.7.14",

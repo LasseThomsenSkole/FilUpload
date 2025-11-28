@@ -1,0 +1,53 @@
+import { json } from '@sveltejs/kit';
+import { prisma } from '$lib/server/prisma';
+import { auth } from '$lib/auth/auth.ts';
+
+export async function POST({ request }) {
+	const session = await auth.api.getSession({
+		headers: request.headers
+	});
+	if (!session?.user) {
+		return json({ error: 'Unauthorized' }, { status: 401 });
+	}
+
+	const user = session.user;
+
+	const { fileId, encryptedMetadata, keyPackets, nonce, metaNonce } = await request.json();
+
+	if (!fileId || !encryptedMetadata || !Array.isArray(keyPackets) || !nonce || !metaNonce) {
+		return json({ error: 'Invalid body' }, { status: 400 });
+	}
+
+	const file = await prisma.file.findUnique({
+		where: { id: fileId }
+	});
+
+	if (!file) {
+		return json({ error: 'File not found' }, { status: 404 });
+	}
+
+	if (file.ownerId !== user.id) {
+		return json({ error: 'Forbidden' }, { status: 403 });
+	}
+
+	await prisma.file.update({
+		where: { id: fileId },
+		data: {
+			encryptedMetadata,
+			nonce,
+			metaNonce
+		}
+	});
+
+	for (const kp of keyPackets) {
+		await prisma.fileKeyPacket.create({
+			data: {
+				fileId,
+				recipientId: kp.recipientId,
+				encryptedFek: kp.encryptedFek
+			}
+		});
+	}
+
+	return json({ ok: true });
+}
