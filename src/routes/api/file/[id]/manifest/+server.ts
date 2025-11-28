@@ -41,6 +41,8 @@ export async function GET({ params, request }) {
 		fileId: file.id,
 		s3Key: file.s3Key,
 		encryptedMetadata: file.encryptedMetadata,
-		keyPacket: keyPacket ? keyPacket.encryptedFek : null
+		keyPacket: keyPacket ? keyPacket.encryptedFek : null,
+		nonce: file.nonce,
+		metaNonce: file.metaNonce
 	});
 }
