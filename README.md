@@ -25,7 +25,7 @@ npm run dev
 npm run dev -- --open
 
 # Start SeaweedFS S3 server
-docker run -p 8333:8333 chrislusf/seaweedfs server -s3 -s3.config=\seaweedfs\s3.config.json
+docker run -p 8333:8333 -v "C:\Users\lasse\seaweedfs\s3.config.json:/etc/seaweedfs/s3.json" chrislusf/seaweedfs server -s3 -s3.config=/etc/seaweedfs/s3.json
 
 ```
 
