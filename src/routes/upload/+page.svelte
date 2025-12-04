@@ -115,11 +115,11 @@
 	}
 </script>
 
-<div class="flex justify-between p-4">
+<header class="flex justify-between p-4">
 	<a class="hover:text-red-500" href="/">Home</a>
 	<a href="/download">{user?.name}</a>
 	<a class="hover:text-red-500" href="/login">Login</a>
-</div>
+</header>
 
 <div class="flex flex-col items-center justify-center min-h-screen">
 	<form class="flex flex-col items-center space-y-4 border p-6"
