@@ -117,7 +117,7 @@
 
 <div class="flex justify-between p-4">
 	<a class="hover:text-red-500" href="/">Home</a>
-	<p>{user?.name}</p>
+	<a href="/download">{user?.name}</a>
 	<a class="hover:text-red-500" href="/login">Login</a>
 </div>
 
