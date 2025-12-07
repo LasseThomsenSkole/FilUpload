@@ -6,6 +6,7 @@
 	import { shareFileWithRecipients } from '$lib/crypto/shareFile.ts';
 	import { SvelteSet } from 'svelte/reactivity';
 	import ShareInput from '$lib/Components/share/ShareInput.svelte';
+	import { getUsersFromEmails } from '$lib/helper/getUsersFromEmails.ts';
 
 	export let data;
 
@@ -34,11 +35,11 @@
 		selectedRecipients[fileId] ||= new SvelteSet();
 	}
 
-	async function handleShare(fileId: string) { //todo brug emails
+	async function handleShare(fileId: string, emails: string[]) {
 		sharing = true;
 		status = "Sharing file...";
 		try {
-			const recipientsId = Array.from(selectedRecipients[fileId]?.values() || []);
+			const recipientsId = await getUsersFromEmails(emails)
 			const ownerPublicKeyB64 = user.publicKey!;
 			await shareFileWithRecipients(fileId, recipientsId, ownerPublicKeyB64, privateKey);
 			status = "File shared successfully.";
