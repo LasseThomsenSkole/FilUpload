@@ -83,10 +83,16 @@
 
 	<ul class="space-y-4">
 		{#if !showSharedFiles}
+			{#if files.length === 0}
+				<p>You have no files uploaded.</p>
+			{/if}
 			{#each files as file (file.id)}
 				<OwnedFileItem {file} {user} {privateKey} {handleShare} />
 			{/each}
 		{:else}
+			{#if sharedFiles.length === 0}
+				<p>No files have been shared with you.</p>
+			{/if}
 			{#each sharedFiles as file (file.id)}
 				<SharedFileItem {file} {user} {privateKey} />
 			{/each}
