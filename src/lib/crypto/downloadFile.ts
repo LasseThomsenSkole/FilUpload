@@ -24,7 +24,7 @@ export async function downloadFile(fileId: string, publicKey: string, privateKey
 	const ab = await response.arrayBuffer();
 	const ciphertext = new Uint8Array(ab);
 
-	const nonce = sodium.from_base64(manifest.nonce); //decrypt
+	const nonce = sodium.from_base64(manifest.nonce);
 
 	const plaintext = sodium.crypto_aead_xchacha20poly1305_ietf_decrypt(
 		null,
