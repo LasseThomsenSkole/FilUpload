@@ -19,9 +19,25 @@ export const load = async ({ request }) => {
 			},
 		},
 	});
+	const sharedFiles = await prisma.file.findMany({
+		where: {
+			ownerId: { not: session.user.id },
+			keyPackets: {
+				some: {
+					recipientId: session.user.id,
+				},
+			},
+		},
+		include: {
+			keyPackets: {
+				where: { recipientId: session.user.id },
+			},
+		},
+	});
 
 	return {
 		user: session.user,
-		files
+		files,
+		sharedFiles,
 	};
 };
