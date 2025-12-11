@@ -10,7 +10,7 @@
 
 	let decryptedFileBlob: Blob | null = null;
 
-	onMount(async () => {
+	onMount(async () => { //todo extract to function
 		try {
 			await sodium.ready;
 
