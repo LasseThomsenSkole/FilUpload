@@ -1,11 +1,9 @@
 <script lang="ts">
-	import { downloadFile } from '$lib/crypto/downloadFile.ts';
 	import { onMount } from 'svelte';
 	import { get } from 'idb-keyval';
 	import sodium from 'libsodium-wrappers';
 	import { shareFileWithRecipients } from '$lib/crypto/shareFile.ts';
 	import { SvelteSet } from 'svelte/reactivity';
-	import ShareInput from '$lib/Components/share/ShareInput.svelte';
 	import { getUsersFromEmails } from '$lib/helper/getUsersFromEmails.ts';
 	import SharedFileItem from '$lib/Components/files/SharedFileItem.svelte';
 	import OwnedFileItem from '$lib/Components/files/OwnedFileItem.svelte';
