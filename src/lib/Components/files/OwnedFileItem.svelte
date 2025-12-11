@@ -1,4 +1,6 @@
 <script lang="ts">
+	import CreateShareLink from '$lib/Components/share/CreateShareLink.svelte';
+
 	export let file;
 	export let user;
 	export let privateKey;
@@ -6,13 +8,18 @@
 
 	import { downloadFile } from '$lib/crypto/downloadFile.ts';
 	import ShareInput from '$lib/Components/share/ShareInput.svelte';
-	import { SvelteSet } from 'svelte/reactivity';
 	export let handleShare: (fileId: string, emails: string[]) => Promise<void>;
+	export let handleCreateShareLink: (fileId: string, expireIn: number) => Promise<void>;
 	let openShareMenu = false;
-	let recipients = new SvelteSet<string>();
+	let openCreateShareLinkMenu = false;
 
 	function toggleShareMenu() {
+		openCreateShareLinkMenu = false;
 		openShareMenu = !openShareMenu;
+	}
+	function toggleCreateShareLinkMenu() {
+		openShareMenu = false;
+		openCreateShareLinkMenu = !openCreateShareLinkMenu;
 	}
 
 </script>
@@ -41,10 +48,21 @@
 				>
 					Share
 				</button>
+				<button
+					class="border px-3 py-1 hover:bg-gray-800"
+					on:click={toggleCreateShareLinkMenu}
+				>
+					Create Share Link
+				</button>
 
 				{#if openShareMenu}
 					<div class="absolute right-0 mt-2 z-10">
 						<ShareInput onShare={(emails) => handleShare(file.id, emails)} />
+					</div>
+				{/if}
+				{#if openCreateShareLinkMenu}
+					<div class="absolute right-0 mt-2 z-10">
+						<CreateShareLink onCreateShareLink={(minutes) => handleCreateShareLink(file.id, minutes)} />
 					</div>
 				{/if}
 			</div>
