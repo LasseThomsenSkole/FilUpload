@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { signIn } from "$lib/auth/signIn";
 	import { signUp } from "$lib/auth/signUp";
+	import { get as idbGet } from 'idb-keyval';
 	import WordPhraseDialog from '$lib/Components/login/WordPhraseDialog.svelte';
+	import RecoverPrivateKey from '$lib/Components/login/RecoverPrivateKey.svelte';
+	import { goto } from '$app/navigation';
 
-	let step: 'signin' | 'signup' | 'mnemonic' = 'signup';
+	let step: 'signin' | 'signup' | 'mnemonic' | 'recover' = 'recover';
 
 	let name = "";
 	let email = "";
@@ -17,7 +20,13 @@
 		loading = true;
 
 		try {
-			await signIn(email, password, false);
+			const session = await signIn(email, password, false);
+			name = session.user.name;
+			if (await idbGet(`${name}_privateKey`) === undefined) {
+				step = 'recover';
+			}else{
+				await goto('/download')
+			}
 		} catch (e: any) {
 			error = e.message;
 		} finally {
@@ -88,5 +97,10 @@
 {#if step === "mnemonic" && mnemonic}
 	<div class="mt-10 mx-auto max-w-md">
 		<WordPhraseDialog {mnemonic} />
+	</div>
+{/if}
+{#if step === "recover"}
+	<div class="mt-10 mx-auto max-w-md">
+		<RecoverPrivateKey username={name} onRecovered={() => goto('/download')} />
 	</div>
 {/if}
