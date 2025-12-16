@@ -1,6 +1,6 @@
 <script lang="ts">
     import { signIn } from "$lib/auth/signIn";
-    import { signUp } from "$lib/auth/signUp.ts";
+    import { signUp } from "$lib/auth/signUp";
     let name = "";
     let email = "";
     let password = "";
