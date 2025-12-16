@@ -1,14 +1,13 @@
 <script lang="ts">
-	import { downloadFile } from '$lib/crypto/downloadFile.ts';
 	import { onMount } from 'svelte';
 	import { get } from 'idb-keyval';
 	import sodium from 'libsodium-wrappers';
 	import { shareFileWithRecipients } from '$lib/crypto/shareFile.ts';
 	import { SvelteSet } from 'svelte/reactivity';
-	import ShareInput from '$lib/Components/share/ShareInput.svelte';
 	import { getUsersFromEmails } from '$lib/helper/getUsersFromEmails.ts';
 	import SharedFileItem from '$lib/Components/files/SharedFileItem.svelte';
 	import OwnedFileItem from '$lib/Components/files/OwnedFileItem.svelte';
+	import { createShareLink } from '$lib/crypto/createShareLink.ts';
 
 	export let data;
 
@@ -55,6 +54,21 @@
 			openShareMenuForFile = null;
 		}
 	}
+	async function handleCreateShareLink(fileId: string, expireInSeconds: number) {
+		sharing = true;
+		status = "Creating share link...";
+		try {
+			const ownerPublicKeyB64 = user.publicKey!;
+			const sharelinkOBJ = await createShareLink(fileId, ownerPublicKeyB64, privateKey, expireInSeconds);
+			console.log(sharelinkOBJ);
+			status = "Share link created successfully.";
+		} catch (error) {
+			console.error("Error creating share link:", error);
+			status = "Error creating share link.";
+		} finally {
+			sharing = false;
+		}
+	}
 </script>
 
 
@@ -87,7 +101,7 @@
 				<p>You have no files uploaded.</p>
 			{/if}
 			{#each files as file (file.id)}
-				<OwnedFileItem {file} {user} {privateKey} {handleShare} />
+				<OwnedFileItem {file} {user} {privateKey} {handleShare} {handleCreateShareLink}/>
 			{/each}
 		{:else}
 			{#if sharedFiles.length === 0}

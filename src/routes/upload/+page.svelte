@@ -86,7 +86,7 @@
 		}
 
 
-		const userPub = sodium.from_base64(user.publicKey);
+		const userPub = sodium.from_base64(user.publicKey!);
 
 		const sealedFek = sodium.crypto_box_seal(key, userPub);
 
