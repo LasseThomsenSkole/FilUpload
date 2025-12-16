@@ -126,9 +126,9 @@
 		{#if readyToDownload}
 			<button
 				on:click={saveFile}
-				class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-md border border-gray-600"
+				class="px-4 py-2 hover:bg-gray-700 border"
 			>
-				⬇ Download File
+				Download File
 			</button>
 		{/if}
 	{/if}
