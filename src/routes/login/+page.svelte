@@ -6,7 +6,7 @@
 	import RecoverPrivateKey from '$lib/Components/login/RecoverPrivateKey.svelte';
 	import { goto } from '$app/navigation';
 
-	let step: 'signin' | 'signup' | 'mnemonic' | 'recover' = 'recover';
+	let step: 'signin' | 'signup' | 'mnemonic' | 'recover' = 'signin';
 
 	let name = "";
 	let email = "";
