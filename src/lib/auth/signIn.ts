@@ -7,8 +7,6 @@ export async function signIn(email: string, password: string, rememberMe: boolea
 
         password,
 
-        callbackURL: "/download",
-
         rememberMe
     });
     if (error) {
