@@ -76,7 +76,7 @@
 		<h1 class="text-2xl font-bold mb-4">Sign Up</h1>
 		<div class="mb-4">
 			<label for="name" class="block text-sm font-medium mb-1">Name</label>
-			<input type="text" bind:value={name} id="email" name="email" class="border" />
+			<input type="text" bind:value={name} id="name" name="name" class="border" />
 			<label for="email" class="block text-sm font-medium mb-1 ">Email</label>
 			<input type="email" bind:value={email} id="email" name="email" class="border" />
 			<label for="password" class="block text-sm font-medium mb-1">password</label>
