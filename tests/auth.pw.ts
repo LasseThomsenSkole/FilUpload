@@ -1,9 +1,11 @@
 import { test, expect } from '@playwright/test';
 
 test('signup and persist keys', async ({ page }) => {
-	await page.goto('/signup');
+	await page.goto('/login');
 
-	await page.fill('[name="name"]', 'E2E User');
+	await page.click('button:has-text("Register here")');
+	await page.waitForSelector('input[name="name"]');
+	await page.fill('[name="name"]', 'e2e');
 	await page.fill('[name="email"]', 'e2e@test.com');
 	await page.fill('[name="password"]', 'password123!');
 
