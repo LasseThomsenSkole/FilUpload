@@ -65,8 +65,7 @@
 
 			metadata = JSON.parse(new TextDecoder().decode(metadataBytes));
 
-			const { url } = await fetch(`/api/file/${fileId}/download-url`).then(r => r.json());
-
+			const { url } = await fetch(`/api/file/${shareId}/download-shortlived`).then(r => r.json());
 			const response = await fetch(url);
 			const ab = await response.arrayBuffer();
 			const ciphertext = new Uint8Array(ab);
