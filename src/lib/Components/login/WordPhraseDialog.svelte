@@ -1,5 +1,7 @@
 <script lang="ts">
 
+	import { goto } from '$app/navigation';
+
 	export let mnemonic: string;
 
 	function copyToClipboard() {
@@ -28,5 +30,8 @@
 		<p class="mt-4 text-sm text-gray-300">
 			Copy the phrase and keep it safe. You will need it to login on other devices.
 		</p>
+		<button on:click={ async ()=> await goto("/upload")} class="mt-4 text-sm text-gray-300">
+			i have safely stored my word phrase
+		</button>
 	</div>
 {/if}
