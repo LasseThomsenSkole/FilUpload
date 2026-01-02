@@ -8,6 +8,7 @@
 	import SharedFileItem from '$lib/Components/files/SharedFileItem.svelte';
 	import OwnedFileItem from '$lib/Components/files/OwnedFileItem.svelte';
 	import { createShareLink } from '$lib/crypto/createShareLink.ts';
+	import { goto } from '$app/navigation';
 
 	export let data;
 
@@ -88,6 +89,12 @@
 			class:text-gray-500={!showSharedFiles}
 		>
 			Shared with you
+		</button>
+		<button
+			class="border px-3 py-1 hover:bg-gray-800 ml-auto"
+			on:click={() => goto('/upload')}
+		>
+			Upload
 		</button>
 	</div>
 
