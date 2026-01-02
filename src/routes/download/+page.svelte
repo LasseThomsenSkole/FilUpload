@@ -102,23 +102,32 @@
 		<p class="text-red-500">No private key loaded. You cannot decrypt files.</p>
 	{/if}
 
-	<ul class="space-y-4">
-		{#if !showSharedFiles}
-			{#if files.length === 0}
-				<p>You have no files uploaded.</p>
+	<div class="max-w-2xl mx-auto">
+		<ul class="space-y-4">
+			{#if !showSharedFiles}
+				{#if files.length === 0}
+					<p>You have no files uploaded.</p>
+				{/if}
+				{#each files as file (file.id)}
+					<OwnedFileItem
+						{file}
+						{user}
+						{privateKey}
+						{handleShare}
+						{handleCreateShareLink}
+					/>
+				{/each}
+			{:else}
+				{#if sharedFiles.length === 0}
+					<p>No files have been shared with you.</p>
+				{/if}
+				{#each sharedFiles as file (file.id)}
+					<SharedFileItem {file} {user} {privateKey} />
+				{/each}
 			{/if}
-			{#each files as file (file.id)}
-				<OwnedFileItem {file} {user} {privateKey} {handleShare} {handleCreateShareLink}/>
-			{/each}
-		{:else}
-			{#if sharedFiles.length === 0}
-				<p>No files have been shared with you.</p>
-			{/if}
-			{#each sharedFiles as file (file.id)}
-				<SharedFileItem {file} {user} {privateKey} />
-			{/each}
-		{/if}
-	</ul>
+		</ul>
+	</div>
+
 
 	{#if status}
 		<p class="mt-4">{status}</p>
