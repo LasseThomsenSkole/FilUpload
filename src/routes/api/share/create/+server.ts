@@ -23,7 +23,6 @@ export async function POST({ request }) {
 	if (!file) return json({ error: 'File not found' }, { status: 404 });
 	if (file.ownerId !== user.id) return json({ error: 'Forbidden' }, { status: 403 });
 
-	// 2. Create short-lived share entry
 	const share = await prisma.fileShare.create({
 		data: {
 			fileId,
