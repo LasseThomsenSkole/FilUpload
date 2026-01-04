@@ -30,6 +30,6 @@
 		class="mt-3 w-full border px-3 py-2 hover:bg-gray-700"
 		on:click={submit}
 	>
-		Create Share Link
+		Create and Copy Share Link
 	</button>
 </div>

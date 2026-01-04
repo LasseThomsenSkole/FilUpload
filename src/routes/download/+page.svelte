@@ -57,15 +57,12 @@
 	}
 	async function handleCreateShareLink(fileId: string, expireInSeconds: number) {
 		sharing = true;
-		status = "Creating share link...";
 		try {
 			const ownerPublicKeyB64 = user.publicKey!;
 			const sharelinkOBJ = await createShareLink(fileId, ownerPublicKeyB64, privateKey, expireInSeconds);
-			console.log(sharelinkOBJ);
-			status = "Share link created successfully.";
+			await navigator.clipboard.writeText(sharelinkOBJ.shareUrl);
 		} catch (error) {
 			console.error("Error creating share link:", error);
-			status = "Error creating share link.";
 		} finally {
 			sharing = false;
 		}
