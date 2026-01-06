@@ -1,6 +1,5 @@
 import sodium from 'libsodium-wrappers';
 
-
 export async function createShareLink(
 	fileId: string,
 	ownerPublicKey: string,
@@ -20,7 +19,6 @@ export async function createShareLink(
 
 	const encryptedFekOwner = sodium.from_base64(manifest.keyPacket);
 
-
 	const ownerPub = sodium.from_base64(ownerPublicKey);
 
 	const ownerPriv = sodium.from_base64(ownerPrivateKey);
@@ -29,9 +27,7 @@ export async function createShareLink(
 
 	if (!FEK) throw new Error('Failed to unwrap FEK');
 
-
 	const shareKey = sodium.randombytes_buf(sodium.crypto_aead_xchacha20poly1305_ietf_KEYBYTES);
-
 
 	const nonce = sodium.randombytes_buf(sodium.crypto_aead_xchacha20poly1305_ietf_NPUBBYTES);
 
@@ -42,7 +38,6 @@ export async function createShareLink(
 		nonce,
 		shareKey
 	);
-
 
 	const share = await fetch('/api/share/create', {
 		method: 'POST',
@@ -59,7 +54,6 @@ export async function createShareLink(
 	});
 
 	if (!share.shareId) throw new Error('Server did not return shareId');
-
 
 	const shareUrl = `${window.location.origin}/shared/${share.shareId}#key=${sodium.to_base64(
 		shareKey

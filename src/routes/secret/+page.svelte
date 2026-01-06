@@ -1,13 +1,13 @@
 <script>
-    export let data;
-    const user = data.user;
+	export let data;
+	const user = data.user;
 </script>
 
-{#if user?.role === "ADMIN"}
-    ADMIN ADMIN ADMIN
+{#if user?.role === 'ADMIN'}
+	ADMIN ADMIN ADMIN
 {/if}
-{#if user?.role === "USER"}
-   user user user
+{#if user?.role === 'USER'}
+	user user user
 {/if}
 {user?.name}
-{"role:" + user?.role}
+{'role:' + user?.role}

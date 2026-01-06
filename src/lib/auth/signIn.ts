@@ -1,17 +1,16 @@
-import {authClient} from "$lib/auth/auth-client";
+import { authClient } from '$lib/auth/auth-client';
 
 export async function signIn(email: string, password: string, rememberMe: boolean) {
-    const {data, error} = await authClient.signIn.email({
+	const { data, error } = await authClient.signIn.email({
+		email,
 
-        email,
+		password,
 
-        password,
+		rememberMe
+	});
+	if (error) {
+		throw new Error(error.message);
+	}
 
-        rememberMe
-    });
-    if (error) {
-        throw new Error(error.message);
-    }
-
-    return data;
+	return data;
 }

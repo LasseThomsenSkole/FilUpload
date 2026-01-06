@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87cb1ca5-23d5-4a57-8260-23e9fb11d9f2" name="Changes" comment="innit with better auth">
-      <change afterPath="$PROJECT_DIR$/src/routes/secret/+page.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/auth/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/auth/auth.ts" afterDir="false" />
+    <list default="true" id="87cb1ca5-23d5-4a57-8260-23e9fb11d9f2" name="Changes" comment="made it so the share link gets copied">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/landing/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/landing/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,44 +16,185 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="+page.svelte" />
+        <option value="ShareWith" />
+        <option value="OwnedFiles" />
+        <option value="SharedFileItem" />
+        <option value="CreateShareLink" />
+        <option value="+page" />
+        <option value="WordPhraseDialog" />
+        <option value="RecoverPrivateKey" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LasseThomsenSkole&quot;
+  }
+}</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="48d831b5-77db-4561-9182-7891d6d5e51a" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LasseThomsenSkole/FilUpload.git&quot;,
+    &quot;accountId&quot;: &quot;48d831b5-77db-4561-9182-7891d6d5e51a&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;LasseThomsenSkole&quot;,
+    &quot;repository&quot;: &quot;FilUpload&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="35Q7rQuDRDPBbX0n4f5jkWmtfpX" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "ts.external.directory.path": "/Users/lasse/WebstormProjects/hovedopgave-template/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.localhost:5555.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Playwright.signup and persist keys.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Vitest.All Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.GET /api/file/[id]/download-url.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.GET /api/user.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.GET /api/user/[id]/public-key.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.POST /api/file/[id]/share.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.POST /api/upload/complete.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.POST /api/upload/init.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.signup and persist keys (1).executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.signup and persist keys (2).executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.signup and persist keys dfgdfgd.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.signup and persist keys.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;tweaks&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lasse/WebstormProjects/FilUpload/src/routes/upload&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\lasse\\WebstormProjects\\FilUpload\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\lasse\\WebstormProjects\\FilUpload\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\lasse\WebstormProjects\FilUpload\src\routes\upload" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lasse\WebstormProjects\FilUpload" />
+      <recent name="C:\Users\lasse\WebstormProjects\FilUpload\src\routes\api\share\create" />
+      <recent name="C:\Users\lasse\WebstormProjects\FilUpload\src\routes\api\upload\init" />
+      <recent name="C:\Users\lasse\WebstormProjects\FilUpload\src\routes\api\upload" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="All Tests" type="JavaScriptTestRunnerPlaywright" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <playwright-package value="$PROJECT_DIR$/node_modules/@playwright/test" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="GET /api/file/[id]/download-url" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/routes/api/file/[id]/download-url/server.test.ts" />
+      <test-names>
+        <test-name value="GET /api/file/[id]/download-url" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="GET /api/user" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/routes/api/user/server.test.ts" />
+      <test-names>
+        <test-name value="GET /api/user" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="GET /api/user/[id]/public-key" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/routes/api/user/[id]/public-key/server.test.ts" />
+      <test-names>
+        <test-name value="GET /api/user/[id]/public-key" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="POST /api/file/[id]/share" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/routes/api/file/[id]/share/server.test.ts" />
+      <test-names>
+        <test-name value="POST /api/file/[id]/share" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="POST /api/upload/complete" type="JavaScriptTestRunnerVitest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <vitest-package value="$PROJECT_DIR$/node_modules/vitest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <vitest-options value="--run" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/routes/api/upload/complete/server.test.ts" />
+      <test-names>
+        <test-name value="POST /api/upload/complete" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -62,18 +202,34 @@
       </scripts>
       <node-interpreter value="project" />
       <envs />
+      <EXTENSION ID="com.intellij.javascript.debugger.execution.StartBrowserRunConfigurationExtension">
+        <browser with-js-debugger="true" />
+      </EXTENSION>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.dev" />
+      <item itemvalue="Playwright.All Tests" />
+      <item itemvalue="Vitest.GET /api/file/[id]/download-url" />
+      <item itemvalue="Vitest.GET /api/user" />
+      <item itemvalue="Vitest.GET /api/user/[id]/public-key" />
+      <item itemvalue="Vitest.POST /api/file/[id]/share" />
+      <item itemvalue="Vitest.POST /api/upload/complete" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.dev" />
+        <item itemvalue="Vitest.GET /api/file/[id]/download-url" />
+        <item itemvalue="Vitest.POST /api/upload/complete" />
+        <item itemvalue="Vitest.POST /api/file/[id]/share" />
+        <item itemvalue="Vitest.GET /api/user/[id]/public-key" />
+        <item itemvalue="Vitest.GET /api/user" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.26830.93" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-WS-253.28294.332" />
       </set>
     </attachedChunks>
   </component>
@@ -85,31 +241,480 @@
       <option name="presentableId" value="Default" />
       <updated>1763030639396</updated>
       <workItem from="1763030640539" duration="9251000" />
+      <workItem from="1763660502252" duration="15000" />
+      <workItem from="1763660526622" duration="154000" />
+      <workItem from="1763660905637" duration="2023000" />
+      <workItem from="1763727485266" duration="5084000" />
+      <workItem from="1763737715380" duration="156000" />
+      <workItem from="1763737894945" duration="3115000" />
+      <workItem from="1763808574531" duration="1137000" />
+      <workItem from="1763810027723" duration="100000" />
+      <workItem from="1763810157205" duration="33000" />
+      <workItem from="1763810209134" duration="8098000" />
+      <workItem from="1763820503827" duration="4572000" />
+      <workItem from="1764075231987" duration="6113000" />
+      <workItem from="1764243342784" duration="16021000" />
+      <workItem from="1764328099421" duration="10600000" />
+      <workItem from="1764850052156" duration="11189000" />
+      <workItem from="1765120629107" duration="9460000" />
+      <workItem from="1765293424642" duration="42000" />
+      <workItem from="1765293575384" duration="10000" />
+      <workItem from="1765293600305" duration="8810000" />
+      <workItem from="1765455818625" duration="9873000" />
+      <workItem from="1765886720739" duration="16425000" />
+      <workItem from="1766073619375" duration="3456000" />
+      <workItem from="1766144249679" duration="11391000" />
+      <workItem from="1766937722322" duration="3422000" />
+      <workItem from="1767009116886" duration="8523000" />
+      <workItem from="1767366574164" duration="5850000" />
+      <workItem from="1767455559658" duration="10683000" />
+      <workItem from="1767554526906" duration="5795000" />
+      <workItem from="1767620663018" duration="7064000" />
+      <workItem from="1767711891624" duration="2208000" />
     </task>
-    <task id="LOCAL-00001" summary="innit with better auth">
+    <task id="LOCAL-00048" summary="get user ids from emails helper function">
       <option name="closed" value="true" />
-      <created>1763111889440</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+      <created>1765123763921</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1763111889440</updated>
+      <updated>1765123763921</updated>
     </task>
-    <task id="LOCAL-00002" summary="innit with better auth">
+    <task id="LOCAL-00049" summary="refactored handleshare to use emails">
       <option name="closed" value="true" />
-      <created>1763112004998</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
+      <created>1765123791215</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
       <option name="project" value="LOCAL" />
-      <updated>1763112004998</updated>
+      <updated>1765123791215</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00050" summary="refactor: extracted to components and excluded owned files in sharedFiles">
+      <option name="closed" value="true" />
+      <created>1765126774235</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1765126774236</updated>
+    </task>
+    <task id="LOCAL-00051" summary="added indication if no files">
+      <option name="closed" value="true" />
+      <created>1765126974341</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1765126974341</updated>
+    </task>
+    <task id="LOCAL-00052" summary="added unit test for init endpoint">
+      <option name="closed" value="true" />
+      <created>1765297930957</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1765297930958</updated>
+    </task>
+    <task id="LOCAL-00053" summary="added unit test for complete endpoint">
+      <option name="closed" value="true" />
+      <created>1765298118489</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1765298118489</updated>
+    </task>
+    <task id="LOCAL-00054" summary="added unit test for user endpoint">
+      <option name="closed" value="true" />
+      <created>1765298286240</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1765298286240</updated>
+    </task>
+    <task id="LOCAL-00055" summary="added unit test for user public-key endpoint">
+      <option name="closed" value="true" />
+      <created>1765298569268</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1765298569268</updated>
+    </task>
+    <task id="LOCAL-00056" summary="added unit test for download-url endpoint">
+      <option name="closed" value="true" />
+      <created>1765301248765</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1765301248765</updated>
+    </task>
+    <task id="LOCAL-00057" summary="added unit test for manifest endpoint">
+      <option name="closed" value="true" />
+      <created>1765301444099</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1765301444099</updated>
+    </task>
+    <task id="LOCAL-00058" summary="added unit test for share endpoint">
+      <option name="closed" value="true" />
+      <created>1765301623662</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1765301623662</updated>
+    </task>
+    <task id="LOCAL-00059" summary="added file share model">
+      <option name="closed" value="true" />
+      <created>1765461231682</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1765461231683</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fixed type err">
+      <option name="closed" value="true" />
+      <created>1765468942413</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1765468942413</updated>
+    </task>
+    <task id="LOCAL-00061" summary="added create share link endpoints">
+      <option name="closed" value="true" />
+      <created>1765468977097</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1765468977098</updated>
+    </task>
+    <task id="LOCAL-00062" summary="added createShareLink function">
+      <option name="closed" value="true" />
+      <created>1765469024964</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469024964</updated>
+    </task>
+    <task id="LOCAL-00063" summary="added createShareLink ui">
+      <option name="closed" value="true" />
+      <created>1765469036266</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469036266</updated>
+    </task>
+    <task id="LOCAL-00064" summary="added page to download shared links">
+      <option name="closed" value="true" />
+      <created>1765469059784</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469059784</updated>
+    </task>
+    <task id="LOCAL-00065" summary="added page to download shared links">
+      <option name="closed" value="true" />
+      <created>1765469068793</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469068793</updated>
+    </task>
+    <task id="LOCAL-00066" summary="removed unused import">
+      <option name="closed" value="true" />
+      <created>1765469102220</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1765469102220</updated>
+    </task>
+    <task id="LOCAL-00067" summary="tweaked ui">
+      <option name="closed" value="true" />
+      <created>1765895208676</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1765895208676</updated>
+    </task>
+    <task id="LOCAL-00068" summary="tweaked ui">
+      <option name="closed" value="true" />
+      <created>1765895357110</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1765895357110</updated>
+    </task>
+    <task id="LOCAL-00069" summary="refactored signUp import">
+      <option name="closed" value="true" />
+      <created>1765896566950</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1765896566950</updated>
+    </task>
+    <task id="LOCAL-00070" summary="refactored to have landing page on index, added mnemonic flow to signup">
+      <option name="closed" value="true" />
+      <created>1765901480711</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1765901480711</updated>
+    </task>
+    <task id="LOCAL-00071" summary="refactored to use mnemonic to seed keypair">
+      <option name="closed" value="true" />
+      <created>1765904057681</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1765904057681</updated>
+    </task>
+    <task id="LOCAL-00072" summary="added recoverPrivateKey function to generate private key from wordphrase">
+      <option name="closed" value="true" />
+      <created>1765905422899</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905422901</updated>
+    </task>
+    <task id="LOCAL-00073" summary="removed callback url for control over steps in sign in logic">
+      <option name="closed" value="true" />
+      <created>1765905459678</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905459678</updated>
+    </task>
+    <task id="LOCAL-00074" summary="sets mnemonic in indexedDb">
+      <option name="closed" value="true" />
+      <created>1765905478759</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905478759</updated>
+    </task>
+    <task id="LOCAL-00075" summary="added component to recover privateKey">
+      <option name="closed" value="true" />
+      <created>1765905500291</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905500292</updated>
+    </task>
+    <task id="LOCAL-00076" summary="added recover step">
+      <option name="closed" value="true" />
+      <created>1765905511562</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1765905511562</updated>
+    </task>
+    <task id="LOCAL-00077" summary="changed the start step">
+      <option name="closed" value="true" />
+      <created>1766073665956</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1766073665956</updated>
+    </task>
+    <task id="LOCAL-00078" summary="removed demo test">
+      <option name="closed" value="true" />
+      <created>1766149809973</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1766149809973</updated>
+    </task>
+    <task id="LOCAL-00079" summary="removed playwright and added playwright/test">
+      <option name="closed" value="true" />
+      <created>1766149829014</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1766149829014</updated>
+    </task>
+    <task id="LOCAL-00080" summary="added playwright config">
+      <option name="closed" value="true" />
+      <created>1766149862211</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1766149862211</updated>
+    </task>
+    <task id="LOCAL-00081" summary="test innit">
+      <option name="closed" value="true" />
+      <created>1766149871460</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1766149871460</updated>
+    </task>
+    <task id="LOCAL-00082" summary="fixed input name">
+      <option name="closed" value="true" />
+      <created>1766159419578</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1766159419578</updated>
+    </task>
+    <task id="LOCAL-00083" summary="removed example test">
+      <option name="closed" value="true" />
+      <created>1766937983532</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1766937983532</updated>
+    </task>
+    <task id="LOCAL-00084" summary="added wait">
+      <option name="closed" value="true" />
+      <created>1766938025290</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1766938025290</updated>
+    </task>
+    <task id="LOCAL-00085" summary="removed test config">
+      <option name="closed" value="true" />
+      <created>1766938043029</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1766938043029</updated>
+    </task>
+    <task id="LOCAL-00086" summary="added vitest config">
+      <option name="closed" value="true" />
+      <created>1766938053774</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1766938053774</updated>
+    </task>
+    <task id="LOCAL-00087" summary="added download shortlived endpoint">
+      <option name="closed" value="true" />
+      <created>1767016679635</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1767016679636</updated>
+    </task>
+    <task id="LOCAL-00088" summary="refactored to use shareId when fetching download url">
+      <option name="closed" value="true" />
+      <created>1767016698409</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1767016698409</updated>
+    </task>
+    <task id="LOCAL-00089" summary="removed logo">
+      <option name="closed" value="true" />
+      <created>1767016714069</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1767016714069</updated>
+    </task>
+    <task id="LOCAL-00090" summary="button to go to upload">
+      <option name="closed" value="true" />
+      <created>1767016733866</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1767016733866</updated>
+    </task>
+    <task id="LOCAL-00091" summary="added mx-auto to center component and added spacing on button">
+      <option name="closed" value="true" />
+      <created>1767368613227</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1767368613228</updated>
+    </task>
+    <task id="LOCAL-00092" summary="added upload button">
+      <option name="closed" value="true" />
+      <created>1767368901409</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1767368901410</updated>
+    </task>
+    <task id="LOCAL-00093" summary="centered list of items">
+      <option name="closed" value="true" />
+      <created>1767370024511</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1767370024511</updated>
+    </task>
+    <task id="LOCAL-00094" summary="redesigned landing page">
+      <option name="closed" value="true" />
+      <created>1767373742629</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1767373742629</updated>
+    </task>
+    <task id="LOCAL-00095" summary="removed useless comment">
+      <option name="closed" value="true" />
+      <created>1767488349010</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1767488349010</updated>
+    </task>
+    <task id="LOCAL-00096" summary="made it so the share link gets copied">
+      <option name="closed" value="true" />
+      <created>1767564140578</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1767564140578</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="innit with better auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="innit with better auth" />
+    <MESSAGE value="added recoverPrivateKey function to generate private key from wordphrase" />
+    <MESSAGE value="removed callback url for control over steps in sign in logic" />
+    <MESSAGE value="sets mnemonic in indexedDb" />
+    <MESSAGE value="added component to recover privateKey" />
+    <MESSAGE value="added recover step" />
+    <MESSAGE value="changed the start step" />
+    <MESSAGE value="removed demo test" />
+    <MESSAGE value="removed playwright and added playwright/test" />
+    <MESSAGE value="added playwright config" />
+    <MESSAGE value="test innit" />
+    <MESSAGE value="fixed input name" />
+    <MESSAGE value="removed example test" />
+    <MESSAGE value="added wait" />
+    <MESSAGE value="removed test config" />
+    <MESSAGE value="added vitest config" />
+    <MESSAGE value="added download shortlived endpoint" />
+    <MESSAGE value="refactored to use shareId when fetching download url" />
+    <MESSAGE value="removed logo" />
+    <MESSAGE value="button to go to upload" />
+    <MESSAGE value="added mx-auto to center component and added spacing on button" />
+    <MESSAGE value="added upload button" />
+    <MESSAGE value="centered list of items" />
+    <MESSAGE value="redesigned landing page" />
+    <MESSAGE value="removed useless comment" />
+    <MESSAGE value="made it so the share link gets copied" />
+    <option name="LAST_COMMIT_MESSAGE" value="made it so the share link gets copied" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
   </component>
 </project>

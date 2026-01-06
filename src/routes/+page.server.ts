@@ -7,5 +7,5 @@ export const load: PageServerLoad = async ({ request }) => {
 	});
 	return {
 		user: session?.user || null
-	}
+	};
 };

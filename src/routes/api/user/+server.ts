@@ -15,4 +15,4 @@ export const GET = async ({ url }) => {
 	});
 
 	return new Response(JSON.stringify(users), { status: 200 });
-}
+};

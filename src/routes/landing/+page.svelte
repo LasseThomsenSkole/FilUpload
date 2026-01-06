@@ -1,9 +1,9 @@
 <script>
-    import logo from '$lib/assets/logo.png';
-
+	import WordPhraseDialog from '$lib/Components/login/WordPhraseDialog.svelte';
 </script>
-<div class="flex justify-between">
-    <a class="ml-2 hover:text-red-500" href="/about">About</a>
-    <a class="mr-2 hover:text-red-500" href="/login">Login</a>
+
+<div class="mx-auto mt-10 max-w-md">
+	<WordPhraseDialog
+		mnemonic="host slab much impulse sentence electric good claim rail female thing feed"
+	/>
 </div>
-<img src={logo} alt="Logo" class="max-h-1/2 max-w-1/2 mx-auto mt-auto hover:invert"/>

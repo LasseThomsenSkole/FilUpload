@@ -18,10 +18,8 @@ export async function POST({ params, request }) {
 	if (!file) return json({ error: 'Not found' }, { status: 404 });
 	if (file.ownerId !== owner.id) return json({ error: 'Forbidden' }, { status: 403 });
 
-
 	const created = [];
 	for (const kp of body.recipients) {
-
 		const user = await prisma.user.findUnique({ where: { id: kp.recipientId } });
 		if (!user) continue;
 

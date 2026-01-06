@@ -10,7 +10,6 @@ export async function GET({ params, request }) {
 		return json({ error: 'Unauthorized' }, { status: 401 });
 	}
 
-
 	const user = session.user;
 
 	const file = await prisma.file.findUnique({
@@ -26,16 +25,13 @@ export async function GET({ params, request }) {
 	// - owner, OR
 	// - has a keyPacket
 	const allowed =
-		file.ownerId === user.id ||
-		file.keyPackets.some(kp => kp.recipientId === user.id);
+		file.ownerId === user.id || file.keyPackets.some((kp) => kp.recipientId === user.id);
 
 	if (!allowed) {
 		return json({ error: 'Forbidden' }, { status: 403 });
 	}
 
-	const keyPacket = file.keyPackets.find(
-		kp => kp.recipientId === user.id
-	);
+	const keyPacket = file.keyPackets.find((kp) => kp.recipientId === user.id);
 
 	return json({
 		fileId: file.id,
