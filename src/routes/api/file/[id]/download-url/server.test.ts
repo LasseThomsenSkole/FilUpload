@@ -1,7 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import type { RequestEvent } from '@sveltejs/kit';
 import { GET } from './+server';
-//todo muligvis extract duplicate code i test utils
 vi.mock('$lib/auth/auth', () => ({
 	auth: {
 		api: {

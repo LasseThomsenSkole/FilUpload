@@ -28,7 +28,6 @@ export async function GET({ params, request }) {
 		file.ownerId === user.id || file.keyPackets.some((k) => k.recipientId === user.id);
 
 	if (!allowed) {
-		//todo: lav det til 404
 		return json({ error: 'Forbidden' }, { status: 403 });
 	}
 
