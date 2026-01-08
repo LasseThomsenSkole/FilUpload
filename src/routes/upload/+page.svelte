@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import sodium from 'libsodium-wrappers';
+	import { authClient } from '$lib/auth/auth-client.ts';
+	import { goto } from '$app/navigation';
 
 	export let data;
 	const user = data.user;
@@ -113,7 +115,19 @@
 <header class="flex justify-between p-4">
 	<a class="hover:text-red-500" href="/">Home</a>
 	<a href="/download">Go to dashboard</a>
-	<a class="hover:text-red-500" href="/login">Login</a>
+	{#if user}
+		<button on:click={async() => await authClient.signOut({
+		fetchOptions:{
+			onSuccess: () => {
+      goto("/login");
+    },
+		}
+		})} class="hover:text-red-500">
+			Logout
+		</button>
+	{:else}
+		<a href="/login">Login</a>
+	{/if}
 </header>
 
 <div class="flex min-h-screen flex-col items-center justify-center">
@@ -130,7 +144,7 @@
 			class="w-64 border p-2"
 		/>
 
-		<button class="border p-2 hover:border-red-500"> Upload </button>
+		<button class="border p-2 hover:border-red-500"> Upload</button>
 	</form>
 
 	{#if status}
