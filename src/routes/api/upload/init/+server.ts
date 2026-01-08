@@ -27,7 +27,7 @@ export async function POST({ request }) {
 
 	const uploadUrl = await getSignedUrl(s3, command, { expiresIn: 300 });
 
-	// Create preliminary DB record
+
 	await prisma.file.create({
 		data: {
 			id: fileId,
