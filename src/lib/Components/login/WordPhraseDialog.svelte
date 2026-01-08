@@ -20,7 +20,7 @@
 {#if mnemonic === null || mnemonic === undefined}
 	<p>Loading...</p>
 {:else}
-	<div class="mx-auto flex h-64 w-64 flex-col border p-4">
+	<div class="mx-auto flex h-72 w-72 flex-col border p-4">
 		<div class="flex items-center justify-between">
 			<h1 class="text-center">Your word phrase</h1>
 			<button class="hover:text-red-600" on:click={copyToClipboard}> Copy </button>
