@@ -112,7 +112,7 @@
 
 <header class="flex justify-between p-4">
 	<a class="hover:text-red-500" href="/">Home</a>
-	<a href="/download">{user?.name}</a>
+	<a href="/download">Go to dashboard</a>
 	<a class="hover:text-red-500" href="/login">Login</a>
 </header>
 
