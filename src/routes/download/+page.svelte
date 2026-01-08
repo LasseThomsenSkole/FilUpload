@@ -129,7 +129,7 @@
 		</ul>
 	</div>
 
-	{#if status}
+	{#if false}
 		<p class="mt-4">{status}</p>
 	{/if}
 </div>
