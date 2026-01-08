@@ -77,13 +77,15 @@
 	<form onsubmit={handleSignUp} class="mx-auto mt-10 max-w-md border p-6">
 		<h1 class="mb-4 text-2xl font-bold">Sign Up</h1>
 		<div class="mb-4">
-			<label for="name" class="mb-1 block text-sm font-medium">Name</label>
-			<input type="text" bind:value={name} id="email" name="email" class="border" />
-			<label for="email" class="mb-1 block text-sm font-medium">Email</label>
-			<input type="email" bind:value={email} id="email" name="email" class="border" />
-			<label for="password" class="mb-1 block text-sm font-medium">password</label>
-			<input type="password" bind:value={password} id="password" name="password" class="border" />
-			<button class="">Sign Up</button>
+			<div>
+				<label for="name" class="mb-1 block text-sm font-medium">Name</label>
+				<input type="text" bind:value={name} id="email" name="email" class="border" />
+				<label for="email" class="mb-1 block text-sm font-medium">Email</label>
+				<input type="email" bind:value={email} id="email" name="email" class="border" />
+				<label for="password" class="mb-1 block text-sm font-medium">Password</label>
+				<input type="password" bind:value={password} id="password" name="password" class="border" />
+			</div>
+			<button class="mt-2">Sign Up</button>
 			<p class="mt-3 text-sm">
 				Already have an account?
 				<button type="button" onclick={() => (step = 'signin')}> Sign in </button>
