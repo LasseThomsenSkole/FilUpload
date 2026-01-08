@@ -9,6 +9,7 @@
 	import OwnedFileItem from '$lib/Components/files/OwnedFileItem.svelte';
 	import { createShareLink } from '$lib/crypto/createShareLink.ts';
 	import { goto } from '$app/navigation';
+	import { authClient } from '$lib/auth/auth-client.ts';
 
 	export let data;
 
@@ -92,6 +93,15 @@
 		</button>
 		<button class="ml-auto border px-3 py-1 hover:bg-gray-800" on:click={() => goto('/upload')}>
 			Upload
+		</button>
+		<button on:click={async() => await authClient.signOut({
+		fetchOptions:{
+			onSuccess: () => {
+      goto("/login");
+    },
+		}
+		})} class="hover:text-red-500 border px-3 py-1">
+			Logout
 		</button>
 	</div>
 
