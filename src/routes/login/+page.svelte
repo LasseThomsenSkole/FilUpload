@@ -51,14 +51,16 @@
 </script>
 
 {#if step === 'signin'}
-	<form onsubmit={handleSignIn} class="mx-auto mt-10 max-w-md border p-6">
+	<form onsubmit={handleSignIn} class="mx-auto mt-10 max-w-sm border p-6">
 		<h1 class="mb-4 text-2xl font-bold">Sign In</h1>
 		<div class="mb-4">
-			<label for="email" class="mb-1 block text-sm font-medium">Email</label>
-			<input type="email" bind:value={email} id="email" name="email" class="border" />
-			<label for="password" class="mb-1 block text-sm font-medium">Password</label>
-			<input type="password" bind:value={password} id="password" name="password" class="border" />
-			<button class="">Sign In</button>
+			<div>
+				<label for="email" class="mb-1 block text-sm font-medium">Email</label>
+				<input type="email" bind:value={email} id="email" name="email" class="border" />
+				<label for="password" class="mb-1 block text-sm font-medium">Password</label>
+				<input type="password" bind:value={password} id="password" name="password" class="border" />
+			</div>
+			<button class="mt-2">Sign In</button>
 
 			<p class="mt-3 text-sm">
 				Dont have an account?
