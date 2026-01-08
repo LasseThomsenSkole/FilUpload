@@ -13,6 +13,10 @@ Rename the example environment file and set the environment variables
 ```
 pnpm install
 ```
+### Generate prisma client
+```
+pnpm prisma generate
+```
 ### start the webapp for development
 ```
 pnpm dev
