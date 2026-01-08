@@ -1,24 +1,16 @@
-import sodium from "libsodium-wrappers";
+import sodium from 'libsodium-wrappers';
 
 export async function downloadFile(fileId: string, publicKey: string, privateKey: string) {
 	await sodium.ready;
-	const manifest = await fetch(`/api/file/${fileId}/manifest`).then(r => r.json());
+	const manifest = await fetch(`/api/file/${fileId}/manifest`).then((r) => r.json());
 
 	const encryptedFek = sodium.from_base64(manifest.keyPacket);
-	const pubKey = sodium.from_base64(
-		publicKey
-	);
-	const privKey = sodium.from_base64(
-		privateKey
-	);
+	const pubKey = sodium.from_base64(publicKey);
+	const privKey = sodium.from_base64(privateKey);
 
-	const fileKey = sodium.crypto_box_seal_open(
-		encryptedFek,
-		pubKey,
-		privKey,
-	);
+	const fileKey = sodium.crypto_box_seal_open(encryptedFek, pubKey, privKey);
 
-	const { url } = await fetch(`/api/file/${fileId}/download-url`).then(r => r.json());
+	const { url } = await fetch(`/api/file/${fileId}/download-url`).then((r) => r.json());
 
 	const response = await fetch(url);
 	const ab = await response.arrayBuffer();
@@ -33,7 +25,6 @@ export async function downloadFile(fileId: string, publicKey: string, privateKey
 		nonce,
 		fileKey
 	);
-
 
 	const blob = new Blob([Uint8Array.from(plaintext)]); //convert
 
@@ -50,8 +41,8 @@ export async function downloadFile(fileId: string, publicKey: string, privateKey
 
 	//trigger save
 	const urlObject = URL.createObjectURL(blob);
-	const a = document.createElement("a");
+	const a = document.createElement('a');
 	a.href = urlObject;
-	a.download = metadata.filename || "file.bin";
+	a.download = metadata.filename || 'file.bin';
 	a.click();
 }

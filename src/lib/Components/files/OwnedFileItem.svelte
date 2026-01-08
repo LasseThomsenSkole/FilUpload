@@ -21,18 +21,16 @@
 		openShareMenu = false;
 		openCreateShareLinkMenu = !openCreateShareLinkMenu;
 	}
-
 </script>
 
 <li class="border p-3">
-	<div class="flex justify-between items-center">
+	<div class="flex items-center justify-between">
 		<div>
 			<p class="font-semibold">{file.id}</p>
 			<p class="text-sm text-gray-400">{file.createdAt.toLocaleDateString()}</p>
 		</div>
 
 		<div class="relative flex items-center gap-2">
-
 			<button
 				class="border px-3 py-1 hover:bg-gray-800"
 				on:click={() => downloadFile(file.id, user.publicKey, privateKey)}
@@ -42,27 +40,23 @@
 			</button>
 
 			<div class="relative inline-block">
-				<button
-					class="border px-3 py-1 hover:bg-gray-800"
-					on:click={toggleShareMenu}
-				>
+				<button class="border px-3 py-1 hover:bg-gray-800" on:click={toggleShareMenu}>
 					Share
 				</button>
-				<button
-					class="border px-3 py-1 hover:bg-gray-800"
-					on:click={toggleCreateShareLinkMenu}
-				>
+				<button class="border px-3 py-1 hover:bg-gray-800" on:click={toggleCreateShareLinkMenu}>
 					Create Share Link
 				</button>
 
 				{#if openShareMenu}
-					<div class="absolute right-0 mt-2 z-10">
+					<div class="absolute right-0 z-10 mt-2">
 						<ShareInput onShare={(emails) => handleShare(file.id, emails)} />
 					</div>
 				{/if}
 				{#if openCreateShareLinkMenu}
-					<div class="absolute right-0 mt-2 z-10">
-						<CreateShareLink onCreateShareLink={(minutes) => handleCreateShareLink(file.id, minutes)} />
+					<div class="absolute right-0 z-10 mt-2">
+						<CreateShareLink
+							onCreateShareLink={(minutes) => handleCreateShareLink(file.id, minutes)}
+						/>
 					</div>
 				{/if}
 			</div>

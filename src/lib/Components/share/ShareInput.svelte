@@ -2,15 +2,15 @@
 	export let onShare: (recipients: string[]) => void;
 
 	let recipients: string[] = [];
-	let inputValue = "";
+	let inputValue = '';
 
 	function addRecipient() {
 		if (!inputValue) return;
 
 		const email = inputValue.trim().toLowerCase();
 
-		if (!email.includes("@")) {
-			inputValue = "";
+		if (!email.includes('@')) {
+			inputValue = '';
 			return;
 		}
 
@@ -18,7 +18,7 @@
 			recipients = [...recipients, email];
 		}
 
-		inputValue = "";
+		inputValue = '';
 	}
 
 	function removeRecipient(email: string) {
@@ -33,14 +33,12 @@
 	}
 </script>
 
-<div class="p-3 border bg-black w-72">
-	<p class="text-sm mb-2">Share with:</p>
+<div class="w-72 border bg-black p-3">
+	<p class="mb-2 text-sm">Share with:</p>
 
-	<div
-		class="flex flex-wrap items-center gap-2 p-2 border"
-	>
+	<div class="flex flex-wrap items-center gap-2 border p-2">
 		{#each recipients as email (email)}
-			<div class="flex items-center px-2 py-1 rounded text-sm border">
+			<div class="flex items-center rounded border px-2 py-1 text-sm">
 				{email}
 				<button
 					class="ml-1 text-red-400 hover:text-red-300"
@@ -52,17 +50,14 @@
 		{/each}
 
 		<input
-			class="bg-transparent focus:outline-none text-sm flex-1"
+			class="flex-1 bg-transparent text-sm focus:outline-none"
 			placeholder="Enter email…"
 			bind:value={inputValue}
-			on:keydown={(e) => e.key === "Enter" && addRecipient()}
+			on:keydown={(e) => e.key === 'Enter' && addRecipient()}
 		/>
 	</div>
 
-	<button
-		class="mt-3 w-full border px-3 py-2 hover:bg-gray-800 rounded"
-		on:click={submit}
-	>
+	<button class="mt-3 w-full rounded border px-3 py-2 hover:bg-gray-800" on:click={submit}>
 		Share
 	</button>
 </div>

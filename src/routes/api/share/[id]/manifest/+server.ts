@@ -30,5 +30,4 @@ export async function GET({ params }) {
 		shareNonce: share.nonce,
 		fileNonce: file.nonce
 	});
-
 }

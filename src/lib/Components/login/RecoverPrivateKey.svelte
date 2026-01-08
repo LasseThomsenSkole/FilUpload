@@ -13,10 +13,7 @@
 		loading = true;
 
 		try {
-			await recoverFromMnemonic(
-				username,
-				phrase
-			)
+			await recoverFromMnemonic(username, phrase);
 			onRecovered();
 		} catch (e) {
 			console.error(e);
@@ -27,10 +24,10 @@
 	}
 </script>
 
-<div class="max-w-md mx-auto mt-10 p-6 border rounded">
-	<h1 class="text-xl font-bold mb-2">Recover your account</h1>
+<div class="mx-auto mt-10 max-w-md rounded border p-6">
+	<h1 class="mb-2 text-xl font-bold">Recover your account</h1>
 
-	<p class="text-sm text-gray-400 mb-3">
+	<p class="mb-3 text-sm text-gray-400">
 		Enter your 12-word recovery phrase to unlock your files on this device.
 	</p>
 
@@ -41,11 +38,10 @@
 		placeholder="word1 word2 word3 ..."
 		disabled={loading}
 	>
-
 	</textarea>
 
 	{#if error}
-		<p class="text-red-500 text-sm mt-2">{error}</p>
+		<p class="mt-2 text-sm text-red-500">{error}</p>
 	{/if}
 
 	<button

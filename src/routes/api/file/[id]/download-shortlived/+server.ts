@@ -31,6 +31,6 @@ export async function GET({ params }) {
 	const url = await getSignedUrl(s3, command, { expiresIn: 60 });
 
 	return json({
-		url,
+		url
 	});
 }

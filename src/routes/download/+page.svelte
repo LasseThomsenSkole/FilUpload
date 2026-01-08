@@ -8,6 +8,8 @@
 	import SharedFileItem from '$lib/Components/files/SharedFileItem.svelte';
 	import OwnedFileItem from '$lib/Components/files/OwnedFileItem.svelte';
 	import { createShareLink } from '$lib/crypto/createShareLink.ts';
+	import { goto } from '$app/navigation';
+	import { authClient } from '$lib/auth/auth-client.ts';
 
 	export let data;
 
@@ -15,21 +17,20 @@
 	let files = data.files;
 	let sharedFiles = data.sharedFiles;
 
-	let privateKey: string = "";
-	let status = "";
+	let privateKey: string = '';
+	let status = '';
 	let loading = false;
 	let sharing = false;
 	let showSharedFiles = false;
-	
+
 	let openShareMenuForFile: string | null = null;
 	let selectedRecipients: Record<string, Set<string>> = {};
 
-
 	onMount(async () => {
 		await sodium.ready;
-		privateKey = await get(`${user.name}_privateKey`) || "";
+		privateKey = (await get(`${user.name}_privateKey`)) || '';
 		if (!privateKey) {
-			status = "No private key found. You must import your recovery phrase.";
+			status = 'No private key found. You must import your recovery phrase.';
 		}
 	});
 
@@ -40,15 +41,15 @@
 
 	async function handleShare(fileId: string, emails: string[]) {
 		sharing = true;
-		status = "Sharing file...";
+		status = 'Sharing file...';
 		try {
-			const recipientsId = await getUsersFromEmails(emails)
+			const recipientsId = await getUsersFromEmails(emails);
 			const ownerPublicKeyB64 = user.publicKey!;
 			await shareFileWithRecipients(fileId, recipientsId, ownerPublicKeyB64, privateKey);
-			status = "File shared successfully.";
+			status = 'File shared successfully.';
 		} catch (error) {
-			console.error("Error sharing file:", error);
-			status = "Error sharing file.";
+			console.error('Error sharing file:', error);
+			status = 'Error sharing file.';
 		} finally {
 			sharing = false;
 			openShareMenuForFile = null;
@@ -56,26 +57,27 @@
 	}
 	async function handleCreateShareLink(fileId: string, expireInSeconds: number) {
 		sharing = true;
-		status = "Creating share link...";
 		try {
 			const ownerPublicKeyB64 = user.publicKey!;
-			const sharelinkOBJ = await createShareLink(fileId, ownerPublicKeyB64, privateKey, expireInSeconds);
-			console.log(sharelinkOBJ);
-			status = "Share link created successfully.";
+			const sharelinkOBJ = await createShareLink(
+				fileId,
+				ownerPublicKeyB64,
+				privateKey,
+				expireInSeconds
+			);
+			await navigator.clipboard.writeText(sharelinkOBJ.shareUrl);
 		} catch (error) {
-			console.error("Error creating share link:", error);
-			status = "Error creating share link.";
+			console.error('Error creating share link:', error);
 		} finally {
 			sharing = false;
 		}
 	}
 </script>
 
-
 <div class="p-4">
-	<div class="flex items-baseline gap-4 mb-4">
+	<div class="mb-4 flex items-baseline gap-4">
 		<button
-			on:click={() => showSharedFiles = false}
+			on:click={() => (showSharedFiles = false)}
 			class="text-2xl font-bold hover:text-white"
 			class:text-gray-500={showSharedFiles}
 		>
@@ -83,11 +85,23 @@
 		</button>
 
 		<button
-			on:click={() => showSharedFiles = true}
+			on:click={() => (showSharedFiles = true)}
 			class="text-xl hover:text-white"
 			class:text-gray-500={!showSharedFiles}
 		>
 			Shared with you
+		</button>
+		<button class="ml-auto border px-3 py-1 hover:bg-gray-800" on:click={() => goto('/upload')}>
+			Upload
+		</button>
+		<button on:click={async() => await authClient.signOut({
+		fetchOptions:{
+			onSuccess: () => {
+      goto("/login");
+    },
+		}
+		})} class="hover:text-red-500 border px-3 py-1">
+			Logout
 		</button>
 	</div>
 
@@ -95,23 +109,25 @@
 		<p class="text-red-500">No private key loaded. You cannot decrypt files.</p>
 	{/if}
 
-	<ul class="space-y-4">
-		{#if !showSharedFiles}
-			{#if files.length === 0}
-				<p>You have no files uploaded.</p>
+	<div class="mx-auto max-w-2xl">
+		<ul class="space-y-4">
+			{#if !showSharedFiles}
+				{#if files.length === 0}
+					<p>You have no files uploaded.</p>
+				{/if}
+				{#each files as file (file.id)}
+					<OwnedFileItem {file} {user} {privateKey} {handleShare} {handleCreateShareLink} />
+				{/each}
+			{:else}
+				{#if sharedFiles.length === 0}
+					<p>No files have been shared with you.</p>
+				{/if}
+				{#each sharedFiles as file (file.id)}
+					<SharedFileItem {file} {user} {privateKey} />
+				{/each}
 			{/if}
-			{#each files as file (file.id)}
-				<OwnedFileItem {file} {user} {privateKey} {handleShare} {handleCreateShareLink}/>
-			{/each}
-		{:else}
-			{#if sharedFiles.length === 0}
-				<p>No files have been shared with you.</p>
-			{/if}
-			{#each sharedFiles as file (file.id)}
-				<SharedFileItem {file} {user} {privateKey} />
-			{/each}
-		{/if}
-	</ul>
+		</ul>
+	</div>
 
 	{#if status}
 		<p class="mt-4">{status}</p>

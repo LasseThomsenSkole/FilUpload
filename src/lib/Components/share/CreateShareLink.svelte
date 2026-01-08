@@ -12,24 +12,21 @@
 	}
 </script>
 
-<div class="p-3 border bg-black w-72">
-	<p class="text-sm mb-2">Link expires in: </p>
+<div class="w-72 border bg-black p-3">
+	<p class="mb-2 text-sm">Link expires in:</p>
 
-	<div class="flex items-center gap-2 p-2 border">
+	<div class="flex items-center gap-2 border p-2">
 		<input
 			type="number"
 			min="1"
-			class="bg-transparent focus:outline-none text-sm flex-1"
+			class="flex-1 bg-transparent text-sm focus:outline-none"
 			placeholder="Expiration in minutes…"
 			bind:value={expireInMinutes}
 		/>
 		<span class="text-sm">min</span>
 	</div>
 
-	<button
-		class="mt-3 w-full border px-3 py-2 hover:bg-gray-700"
-		on:click={submit}
-	>
-		Create Share Link
+	<button class="mt-3 w-full border px-3 py-2 hover:bg-gray-700" on:click={submit}>
+		Create and Copy Share Link
 	</button>
 </div>

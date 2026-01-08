@@ -7,8 +7,8 @@
 	import { downloadFile } from '$lib/crypto/downloadFile.ts';
 </script>
 
-<li class="border p-3 bg-gray-800/30">
-	<div class="flex justify-between items-center">
+<li class="border bg-gray-800/30 p-3">
+	<div class="flex items-center justify-between">
 		<div>
 			<p class="font-semibold">{file.id}</p>
 			<p class="text-sm text-gray-400">Shared by {file.ownerId}</p>

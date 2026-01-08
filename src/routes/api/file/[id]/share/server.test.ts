@@ -118,7 +118,6 @@ describe('POST /api/file/[id]/share', () => {
 			ownerId: 'owner-1'
 		});
 
-
 		(prisma.user.findUnique as any)
 			.mockResolvedValueOnce({ id: 'user-1' })
 			.mockResolvedValueOnce({ id: 'user-2' });
